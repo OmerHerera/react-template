@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
+import SimpleComponent from './SimpleComponent.jsx';
 
 require('./../assets/style.css');
 
@@ -9,7 +9,7 @@ class App extends React.Component {
         return (
             <div>
                 <p> Hello React!</p>
-                <AwesomeComponent />
+                <SimpleComponent />
             </div>
         );
     }
