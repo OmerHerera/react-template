@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, './target');
 var APP_DIR = path.resolve(__dirname, './src');
@@ -24,8 +25,12 @@ var config = {
                 loader: 'babel'
             },
             {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract("css-loader?sourceMap!sass-loader?sourceMap&sourceMapContents")
+            },
+            {
                 test: /\.css$/,
-                loaders: ['style', 'css']
+                loader: ExtractTextPlugin.extract('style-loader','css-loader')
             }
         ]
     },
@@ -36,6 +41,7 @@ var config = {
             },
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
+        new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin({
             template: './index.html'
         })
