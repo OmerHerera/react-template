@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import SimpleComponent from './SimpleComponent.jsx';
+import SimpleComponent from './simpleComponent.jsx';
 
 require('./../assets/style.css');
 
